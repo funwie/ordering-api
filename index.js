@@ -10,7 +10,9 @@ const AuthorizationRouter = require('./auth/routes.config');
 const UsersRouter = require('./users/routes.config');
 const ItemsRouter = require('./menuitems/routes.config');
 const OrdersRouter = require('./ordering/routes.config');
+const TodosRouter = require('./todos/routes.config');
 
+// allow CORS - Cross-Origin Resource Sharing
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Credentials', 'true');
@@ -29,6 +31,7 @@ app.use(bodyParser.json());
 UsersRouter.routesConfig(app);
 ItemsRouter.routesConfig(app);
 OrdersRouter.routesConfig(app);
+TodosRouter.routesConfig(app);
 
 app.listen(config.port, function () {
   console.log('Your server is listening on port %d (http://localhost:%d)', config.port, config.port);
